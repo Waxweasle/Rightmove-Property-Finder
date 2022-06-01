@@ -12,14 +12,14 @@ The program allows the user to collect a selection of listings from Rightmove th
 ## Set-up
 ### Property search link
 1. To obtain a link that will provide your desired properties, head over to https://www.rightmove.co.uk/
-2. Enter your desired property requirements, add any additional filters/ page sortin and hit search
+2. Enter your desired property requirements, add any additional filters/ page sorting and hit search
 3. Once your results are visable, copy the url and paste it into
 > RENTAL_PROPERTIES =
 
 ### Google form
 
 
-### Selinium webdriver
+### Selenium webdriver
 1. Install selenium
     pip install selenium
 2. Go to https://www.selenium.dev/documentation/webdriver/getting_started/install_drivers/ to install the driver for your system
