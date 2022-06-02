@@ -21,7 +21,8 @@ The program allows the user to collect a selection of listings from Rightmove th
 
 ### Selenium webdriver
 1. Install selenium
-    pip install selenium
+'''
+pip install selenium
 2. Go to https://www.selenium.dev/documentation/webdriver/getting_started/install_drivers/ to install the driver for your system
 3. Copy the file path from wherever you have the driver on your machine into 
 > DRIVER_PATH =
