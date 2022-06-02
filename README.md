@@ -29,9 +29,6 @@ pip install selenium
 > DRIVER_PATH =
 
 ## How to
-Once your rightmove link is pasted in, Selenium will open your web browser and direct you to the search results eg.
-![rightmove screen.png]
-
-simply run the program and your results wil appear in the Google Form.
+Once your rightmove link is pasted in, Selenium will open your web browser and direct you to the search results and will the add them to your Google Form.
 Results can be viewed by clicking the "Sheets icon" shortcut from the "Responses" page.
 If you wish to automate the program, attach the send_email() function onto the end to be notified by email when new properties that match your search have been listed on Rightmove.
