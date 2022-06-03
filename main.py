@@ -39,28 +39,20 @@ class PropertyFinder:
         self.links_list = [x.get_attribute("href") for x in self.links_in_page]
         print(self.links_list)
 
-    # FILLS OUT GOOGLE FORM - RESULTS ENTERED TO GOOGLE SHEET FOR EASY ACCESS & READABILITY
-    def fill_form(self):
-        self.driver.get(GOOGLE_FORM)
-        time.sleep(3)
-        total = len(self.prices_list_clean)
-        while True:
-            for x in range(len(self.prices_list_clean)):
-                self.fields = self.driver.find_elements(By.CLASS_NAME, value="whsOnd")
-                fill_address = self.fields[0]
-                fill_address.send_keys(self.address_list[x])
-                fill_price = self.fields[1]
-                fill_price.send_keys(self.prices_list_clean[x])
-                fill_link = self.fields[2]
-                fill_link.send_keys(self.links_list[x])
-                # SUBMIT
-                self.driver.find_element(By.CLASS_NAME, value="uArJ5e").click()
-                self.driver.get(GOOGLE_FORM)
-                time.sleep(3)
-                total -= 1
-            if total == 0:
-                print("All properties added.")
-                break
+        
+    # CONNECTS TO SHEETY API TO FILL OUT GOOGLE SHEET
+    def fill_sheet(self):
+        for x in range(len(self.address_list)):
+            data = {
+                "sheet1": {
+                    "address": self.address_list[x],
+                    "price": self.prices_list_clean[x],
+                    "link": self.links_list[x]
+                }
+            }
+            sheet = requests.post(url="YOUR SHEET URL HERE",
+                                  json=data)
+            print(sheet.json())
 
 
 def send_email():
@@ -81,4 +73,3 @@ finder.get_properties()
 finder.property_data()
 finder.fill_form()
 send_email()
-
