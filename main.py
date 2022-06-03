@@ -37,6 +37,7 @@ class PropertyFinder:
         # GET PROPERTY LINK
         self.links_in_page = self.driver.find_elements(By.CLASS_NAME, value="propertyCard-link ")
         self.links_list = [x.get_attribute("href") for x in self.links_in_page]
+        del self.links_list[::2]
         print(self.links_list)
 
         
