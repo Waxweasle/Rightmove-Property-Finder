@@ -3,8 +3,8 @@ A program using Selenium to automate the finding and saving of desired propertie
 
 ## Prerequisites
 1. Python 3.0+
-2. A rightmove link of desired search conditions to supply to Selenium.
-3. A Google form for data collection
+2. A rightmove link of desired search conditions to supply to Selenium
+3. A Google account and Google sheet for API interaction
 
 ## Usage
 The program allows the user to collect a selection of listings from Rightmove that are set by the users set qualities/ parameters. Once the parameters are set, Selenium connects to Rightmove and pulls property listing info (address, cost and a link to the individual property ) and then uses Google Forms to submit and save the search results for the user for later access. If desired, the program can be automated and includes a function to email the user an alert that new properties have been added.
@@ -16,7 +16,15 @@ The program allows the user to collect a selection of listings from Rightmove th
 3. Once your results are visable, copy the url and paste it into
 > RENTAL_PROPERTIES =
 
-### Google form
+### Google sheet
+1. Head to Google sheets and create a blank document. Name the first 3 columns; "Address", "Price" and "Link" respectively.
+
+## Sheety API
+1. Sign in to Sheety (https://sheety.co/) with your Google account and paste in the url of the Google sheet you made in the previous step into the "New Project" field.
+2. Ensure POST requests are enabled for the project from the dashboard.
+3. Copy the POST url and paste it into
+> requests.post(url=
+within the fill_sheet method
 
 
 ### Selenium webdriver
@@ -29,6 +37,5 @@ pip install selenium
 > DRIVER_PATH =
 
 ## How to
-Once your rightmove link is pasted in, Selenium will open your web browser and direct you to the search results and will the add them to your Google Form.
-Results can be viewed by clicking the "Sheets icon" shortcut from the "Responses" page.
+Once your rightmove link is pasted in, Selenium will open your web browser and direct you to the search results before connecting to the Sheety API and making a POST request to fill in your sheet.
 If you wish to automate the program, attach the send_email() function onto the end to be notified by email when new properties that match your search have been listed on Rightmove.
