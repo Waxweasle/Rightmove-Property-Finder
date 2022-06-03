@@ -38,4 +38,4 @@ pip install selenium
 
 ## How to
 Once your rightmove link is pasted in, Selenium will open your web browser and direct you to the search results before connecting to the Sheety API and making a POST request to fill in your sheet.
-If you wish to automate the program, attach the send_email() function onto the end to be notified by email when new properties that match your search have been listed on Rightmove.
+If you wish to automate the program, use the send_email() function to be notified by email when new properties that match your search have been listed on Rightmove.
